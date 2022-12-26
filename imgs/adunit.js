@@ -1,1 +1,0 @@
-document.bridCanRunAds = true;
