@@ -1,0 +1,643 @@
+MyScreenManager:
+    MainScreen:
+    SelectCharScreen:
+    BuildEquipScreen:
+
+<MainScreen>:
+    name: "main_screen"
+
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+
+        Label:
+            text: "First Screen"
+            font_size: 32
+        
+        Button:
+            text: "Char Select"
+            font_size: 32
+            on_release: 
+                app.root.current = "select_char_screen"
+                root.manager.transition.direction = "left"
+        Button:
+            text: "PRINT"
+            font_size: 32
+            on_release:
+                root.print_information()
+                # app.root.current = "select_char_screen"
+                # root.manager.transition.direction = "left"
+
+<SelectCharScreen>:
+    name: "select_char_screen"
+    ScrollView:
+        do_scroll_x: False
+        do_scroll_y: True
+        scroll_type: ['bars', 'content']
+        GridLayout:
+            # orientation: "vertical"
+            # size: root.width, root.height
+            id: char_s
+            # cols: 4
+            # pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            spacing: 10 
+            size_hint: 0.6,0.5
+            # size_hint_y: None
+            height: self.minimum_height
+            size_hint_y: None
+            # width: self.minimum_width
+            cols: 4
+            row_default_height: '255dp'
+            col_default_width: '450dp'
+            # row_default_width: '225dp'
+            row_force_default: True
+            # col_force_default: True
+            # spacing: 0, 0
+            # padding: 0, 0
+        
+        
+
+        # Label:
+        #     text: "Char Screen"
+        #     font_size: 32
+        
+        # Button:
+        #     text: "Go Back"
+        #     font_size: 32
+        #     on_release: 
+        #         app.root.current = "main_screen"
+        #         root.manager.transition.direction = "right"
+
+<BuildEquipScreen>:
+    name: "build_equip_screen"
+    BoxLayout:
+        orientation: "vertical"
+        # size_hint_y: None
+        size: root.width, root.height
+        size_hint_y: None
+        BoxLayout:
+            orientation: "horizontal"
+            size: root.width, 100
+            Button:
+                id: bt
+                text:'RESET'
+                font_size: 32
+                # size_hint_y: .5
+            Button:
+                id: bt
+                text:'BACK'
+                font_size: 32
+                # size_hint_y: .5
+            Button:
+                id: calculate
+                text:'Calculate'
+                font_size: 32
+                on_release:
+                    root.calculate_stats()
+        GridLayout:
+            size: root.width, root.height-100
+            height: root.height-100
+            size_hint_y: None
+            cols: 4
+            # Image:
+            #     id: artifact
+            #     source: "./full_imgs/Achates-Portrait.png"
+            BoxLayout:
+                orientation: "vertical"
+                BoxLayout:
+                    orientation: "horizontal"
+                    size_hint_y: None
+                    size: root.width, 50
+                    Label:
+                        id: sword
+                        text:'SWORD MAIN - '
+                    TextInput:
+                        id: sword_main_input
+                BoxLayout:
+                    orientation: "horizontal"
+                    size_hint_y: None
+                    size: root.width, 50
+                    Label:
+                        id: sword
+                        text:'SWORD SUB 1 - '
+                    TextInput:
+                        id: sword_sub1_input
+                    Spinner:
+                        id: sword_sub1_stat_type
+                        text: "Type"
+                        values: ["ATK","HP","SPD","CR","CD","EFF","EFR"]
+                    Spinner:
+                        id: sword_sub1_type
+                        text: "Type"
+                        values: ["FLAT","%"]
+                BoxLayout:
+                    orientation: "horizontal"
+                    size_hint_y: None
+                    size: root.width, 50
+                    Label:
+                        id: sword
+                        text:'SWORD SUB 2 - '
+                    TextInput:
+                        id: sword_sub2_input
+                    Spinner:
+                        id: sword_sub2_stat_type
+                        text: "Type"
+                        values: ["ATK","HP","SPD","CR","CD","EFF","EFR"]
+                    Spinner:
+                        id: sword_sub2_type
+                        text: "Type"
+                        values: ["FLAT","%"]
+                BoxLayout:
+                    orientation: "horizontal"
+                    size_hint_y: None
+                    size: root.width, 50
+                    Label:
+                        id: sword
+                        text:'SWORD SUB 3 - '
+                    TextInput:
+                        id: sword_sub3_input
+                    Spinner:
+                        id: sword_sub3_stat_type
+                        text: "Type"
+                        values: ["ATK","HP","SPD","CR","CD","EFF","EFR"]
+                    Spinner:
+                        id: sword_sub3_type
+                        text: "Type"
+                        values: ["FLAT","%"]
+                BoxLayout:
+                    orientation: "horizontal"
+                    size_hint_y: None
+                    size: root.width, 50                    
+                    Label:
+                        id: sword
+                        text:'SWORD SUB 4 - '
+                    TextInput:
+                        id: sword_sub4_input
+                    Spinner:
+                        id: sword_sub4_stat_type
+                        text: "Type"
+                        values: ["ATK","HP","SPD","CR","CD","EFF","EFR"]
+                    Spinner:
+                        id: sword_sub4_type
+                        text: "Type"
+                        values: ["FLAT","%"]
+                BoxLayout:
+                    orientation: "horizontal"
+                    size_hint_y: None
+                    size: root.width, 50
+                    Label:
+                        id: helmet
+                        text:'HELMET MAIN - '
+                    TextInput:
+                        id: helmet_main_input
+                BoxLayout:
+                    orientation: "horizontal"
+                    size_hint_y: None
+                    size: root.width, 50
+                    Label:
+                        id: helmet
+                        text:'HELMET SUB 1 - '
+                    TextInput:
+                        id: helmet_sub1_input
+                    Spinner:
+                        id: helmet_sub1_stat_type
+                        text: "Type"
+                        values: ["ATK","HP","DEF","SPD","CR","CD","EFF","EFR"]
+                    Spinner:
+                        id: helmet_sub1_type
+                        text: "Type"
+                        values: ["FLAT","%"]
+                BoxLayout:
+                    orientation: "horizontal"
+                    size_hint_y: None
+                    size: root.width, 50
+                    Label:
+                        id: helmet
+                        text:'HELMET SUB 2 - '
+                    TextInput:
+                        id: helmet_sub2_input
+                    Spinner:
+                        id: helmet_sub2_stat_type
+                        text: "Type"
+                        values: ["ATK","HP","DEF","SPD","CR","CD","EFF","EFR"]
+                    Spinner:
+                        id: helmet_sub2_type
+                        text: "Type"
+                        values: ["FLAT","%"]
+                BoxLayout:
+                    orientation: "horizontal"
+                    size_hint_y: None
+                    size: root.width, 50
+                    Label:
+                        id: helmet
+                        text:'HELMET SUB 3 - '
+                    TextInput:
+                        id: helmet_sub3_input
+                    Spinner:
+                        id: helmet_sub3_stat_type
+                        text: "Type"
+                        values: ["ATK","HP","DEF","SPD","CR","CD","EFF","EFR"]
+                    Spinner:
+                        id: helmet_sub3_type
+                        text: "Type"
+                        values: ["FLAT","%"]
+                BoxLayout:
+                    orientation: "horizontal"
+                    size_hint_y: None
+                    size: root.width, 50                    
+                    Label:
+                        id: helmet
+                        text:'HELMET SUB 4 - '
+                    TextInput:
+                        id: helmet_sub4_input
+                    Spinner:
+                        id: helmet_sub4_stat_type
+                        text: "Type"
+                        values: ["ATK","HP","DEF","SPD","CR","CD","EFF","EFR"]
+                    Spinner:
+                        id: helmet_sub4_type
+                        text: "Type"
+                        values: ["FLAT","%"]
+                BoxLayout:
+                    orientation: "horizontal"
+                    size_hint_y: None
+                    size: root.width, 50
+                    Label:
+                        id: chest
+                        text:'CHEST MAIN - '
+                    TextInput:
+                        id: chest_main_input
+                BoxLayout:
+                    orientation: "horizontal"
+                    size_hint_y: None
+                    size: root.width, 50
+                    Label:
+                        id: chest
+                        text:'CHEST SUB 1 - '
+                    TextInput:
+                        id: chest_sub1_input
+                    Spinner:
+                        id: chest_sub1_stat_type
+                        text: "Type"
+                        values: ["HP","DEF","SPD","CR","CD","EFF","EFR"]
+                    Spinner:
+                        id: chest_sub1_type
+                        text: "Type"
+                        values: ["FLAT","%"]
+                BoxLayout:
+                    orientation: "horizontal"
+                    size_hint_y: None
+                    size: root.width, 50
+                    Label:
+                        id: chest
+                        text:'CHEST SUB 2 - '
+                    TextInput:
+                        id: chest_sub2_input
+                    Spinner:
+                        id: chest_sub2_stat_type
+                        text: "Type"
+                        values: ["HP","DEF","SPD","CR","CD","EFF","EFR"]
+                    Spinner:
+                        id: chest_sub2_type
+                        text: "Type"
+                        values: ["FLAT","%"]
+                BoxLayout:
+                    orientation: "horizontal"
+                    size_hint_y: None
+                    size: root.width, 50
+                    Label:
+                        id: chest
+                        text:'CHEST SUB 3 - '
+                    TextInput:
+                        id: chest_sub3_input
+                    Spinner:
+                        id: chest_sub3_stat_type
+                        text: "Type"
+                        values: ["HP","DEF","SPD","CR","CD","EFF","EFR"]
+                    Spinner:
+                        id: chest_sub3_type
+                        text: "Type"
+                        values: ["FLAT","%"]
+                BoxLayout:
+                    orientation: "horizontal"
+                    size_hint_y: None
+                    size: root.width, 50                    
+                    Label:
+                        id: chest
+                        text:'CHEST SUB 4 - '
+                    TextInput:
+                        id: chest_sub4_input
+                    Spinner:
+                        id: chest_sub4_stat_type
+                        text: "Type"
+                        values: ["HP","DEF","SPD","CR","CD","EFF","EFR"]
+                    Spinner:
+                        id: chest_sub4_type
+                        text: "Type"
+                        values: ["FLAT","%"]
+            BoxLayout:
+                orientation: "vertical"
+                height: root.height-100
+                size_hint_y: None
+                Image:
+                    id: portrait
+                    source: "./full_imgs/Achates-Portrait.png"
+                BoxLayout:
+                    size_hint_y: None
+                    height: root.height-650
+                    orientation: "horizontal"
+                    BoxLayout:
+                        size_hint_y: None
+                        orientation: "vertical"
+                        BoxLayout:
+                            size_hint_y: None
+                            orientation: "horizontal"
+                            Label:
+                                text:"Attack: "
+                            Label:
+                                id:attack_result
+                        BoxLayout:
+                            size_hint_y: None
+                            orientation: "horizontal"
+                            Label:
+                                text:"Health: "
+                            Label:
+                                id:health_result
+                        BoxLayout:
+                            size_hint_y: None
+                            orientation: "horizontal"
+                            Label:
+                                text:"CD: "
+                            Label:
+                                id:cd_result
+                        BoxLayout:
+                            size_hint_y: None
+                            orientation: "horizontal"
+                            Label:
+                                text:"CR: "
+                            Label:
+                                id:cr_result
+                    BoxLayout:
+                        size_hint_y: None
+                        orientation: "vertical"
+                        BoxLayout:
+                            size_hint_y: None
+                            orientation: "horizontal"
+                            Label:
+                                text:"Defense: "
+                            Label:
+                                id:defense_result
+                        BoxLayout:
+                            size_hint_y: None
+                            orientation: "horizontal"
+                            Label:
+                                text:"Speed: "
+                            Label:
+                                id:speed_result
+                        BoxLayout:
+                            size_hint_y: None
+                            orientation: "horizontal"
+                            Label:
+                                text:"Eff: "
+                            Label:
+                                id:eff_result
+                        BoxLayout:
+                            size_hint_y: None
+                            orientation: "horizontal"
+                            Label:
+                                text:"Efr: "
+                            Label:
+                                id:efr_result
+            BoxLayout:
+                orientation: "vertical"
+                BoxLayout:
+                    orientation: "horizontal"
+                    size_hint_y: None
+                    size: root.width, 50
+                    Label:
+                        id: necklace
+                        text:'NECKLACE MAIN - '
+                    TextInput:
+                        id: necklace_main_input
+                BoxLayout:
+                    orientation: "horizontal"
+                    size_hint_y: None
+                    size: root.width, 50
+                    Label:
+                        id: necklace
+                        text:'NECKLACE SUB 1 - '
+                    TextInput:
+                        id: necklace_sub1_input
+                    Spinner:
+                        id: necklace_sub1_stat_type
+                        text: "Type"
+                        values: ["ATK","HP","DEF","SPD","CR","CD","EFF","EFR"]
+                    Spinner:
+                        id: necklace_sub1_type
+                        text: "Type"
+                        values: ["FLAT","%"]
+                BoxLayout:
+                    orientation: "horizontal"
+                    size_hint_y: None
+                    size: root.width, 50
+                    Label:
+                        id: necklace
+                        text:'NECKLACE SUB 2 - '
+                    TextInput:
+                        id: necklace_sub2_input
+                    Spinner:
+                        id: necklace_sub2_stat_type
+                        text: "Type"
+                        values: ["ATK","HP","DEF","SPD","CR","CD","EFF","EFR"]
+                    Spinner:
+                        id: necklace_sub2_type
+                        text: "Type"
+                        values: ["FLAT","%"]
+                BoxLayout:
+                    orientation: "horizontal"
+                    size_hint_y: None
+                    size: root.width, 50
+                    Label:
+                        id: necklace
+                        text:'NECKLACE SUB 3 - '
+                    TextInput:
+                        id: necklace_sub3_input
+                    Spinner:
+                        id: necklace_sub3_stat_type
+                        text: "Type"
+                        values: ["ATK","HP","DEF","SPD","CR","CD","EFF","EFR"]
+                    Spinner:
+                        id: necklace_sub3_type
+                        text: "Type"
+                        values: ["FLAT","%"]
+                BoxLayout:
+                    orientation: "horizontal"
+                    size_hint_y: None
+                    size: root.width, 50                    
+                    Label:
+                        id: necklace
+                        text:'NECKLACE SUB 4 - '
+                    TextInput:
+                        id: necklace_sub4_input
+                    Spinner:
+                        id: necklace_sub4_stat_type
+                        text: "Type"
+                        values: ["ATK","HP","DEF","SPD","CR","CD","EFF","EFR"]
+                    Spinner:
+                        id: necklace_sub4_type
+                        text: "Type"
+                        values: ["FLAT","%"]
+                BoxLayout:
+                    orientation: "horizontal"
+                    size_hint_y: None
+                    size: root.width, 50
+                    Label:
+                        id: ring
+                        text:'RING MAIN - '
+                    TextInput:
+                        id: ring_main_input
+                BoxLayout:
+                    orientation: "horizontal"
+                    size_hint_y: None
+                    size: root.width, 50
+                    Label:
+                        id: ring
+                        text:'RING SUB 1 - '
+                    TextInput:
+                        id: ring_sub1_input
+                    Spinner:
+                        id: ring_sub1_stat_type
+                        text: "Type"
+                        values: ["ATK","HP","DEF","SPD","CR","CD","EFF","EFR"]
+                    Spinner:
+                        id: ring_sub1_type
+                        text: "Type"
+                        values: ["FLAT","%"]
+                BoxLayout:
+                    orientation: "horizontal"
+                    size_hint_y: None
+                    size: root.width, 50
+                    Label:
+                        id: ring
+                        text:'RING SUB 2 - '
+                    TextInput:
+                        id: ring_sub2_input
+                    Spinner:
+                        id: ring_sub2_stat_type
+                        text: "Type"
+                        values: ["ATK","HP","DEF","SPD","CR","CD","EFF","EFR"]
+                    Spinner:
+                        id: ring_sub2_type
+                        text: "Type"
+                        values: ["FLAT","%"]
+                BoxLayout:
+                    orientation: "horizontal"
+                    size_hint_y: None
+                    size: root.width, 50
+                    Label:
+                        id: ring
+                        text:'RING SUB 3 - '
+                    TextInput:
+                        id: ring_sub3_input
+                    Spinner:
+                        id: ring_sub3_stat_type
+                        text: "Type"
+                        values: ["ATK","HP","DEF","SPD","CR","CD","EFF","EFR"]
+                    Spinner:
+                        id: ring_sub3_type
+                        text: "Type"
+                        values: ["FLAT","%"]
+                BoxLayout:
+                    orientation: "horizontal"
+                    size_hint_y: None
+                    size: root.width, 50                    
+                    Label:
+                        id: ring
+                        text:'RING SUB 4 - '
+                    TextInput:
+                        id: ring_sub4_input
+                    Spinner:
+                        id: ring_sub4_stat_type
+                        text: "Type"
+                        values: ["ATK","HP","DEF","SPD","CR","CD","EFF","EFR"]
+                    Spinner:
+                        id: ring_sub4_type
+                        text: "Type"
+                        values: ["FLAT","%"]
+                BoxLayout:
+                    orientation: "horizontal"
+                    size_hint_y: None
+                    size: root.width, 50
+                    Label:
+                        id: boot
+                        text:'BOOT MAIN - '
+                    TextInput:
+                        id: boot_main_input
+                BoxLayout:
+                    orientation: "horizontal"
+                    size_hint_y: None
+                    size: root.width, 50
+                    Label:
+                        id: boot
+                        text:'BOOT SUB 1 - '
+                    TextInput:
+                        id: boot_sub1_input
+                    Spinner:
+                        id: boot_sub1_stat_type
+                        text: "Type"
+                        values: ["ATK","HP","DEF","SPD","CR","CD","EFF","EFR"]
+                    Spinner:
+                        id: boot_sub1_type
+                        text: "Type"
+                        values: ["FLAT","%"]
+                BoxLayout:
+                    orientation: "horizontal"
+                    size_hint_y: None
+                    size: root.width, 50
+                    Label:
+                        id: boot
+                        text:'BOOT SUB 2 - '
+                    TextInput:
+                        id: boot_sub2_input
+                    Spinner:
+                        id: boot_sub2_stat_type
+                        text: "Type"
+                        values: ["ATK","HP","DEF","SPD","CR","CD","EFF","EFR"]
+                    Spinner:
+                        id: boot_sub2_type
+                        text: "Type"
+                        values: ["FLAT","%"]
+                BoxLayout:
+                    orientation: "horizontal"
+                    size_hint_y: None
+                    size: root.width, 50
+                    Label:
+                        id: boot
+                        text:'BOOT SUB 3 - '
+                    TextInput:
+                        id: boot_sub3_input
+                    Spinner:
+                        id: boot_sub3_stat_type
+                        text: "Type"
+                        values: ["ATK","HP","DEF","SPD","CR","CD","EFF","EFR"]
+                    Spinner:
+                        id: boot_sub3_type
+                        text: "Type"
+                        values: ["FLAT","%"]
+                BoxLayout:
+                    orientation: "horizontal"
+                    size_hint_y: None
+                    size: root.width, 50                    
+                    Label:
+                        id: boot
+                        text:'BOOT SUB 4 - '
+                    TextInput:
+                        id: boot_sub4_input
+                    Spinner:
+                        id: boot_sub4_stat_type
+                        text: "Type"
+                        values: ["ATK","HP","DEF","SPD","CR","CD","EFF","EFR"]
+                    Spinner:
+                        id: boot_sub4_type
+                        text: "Type"
+                        values: ["FLAT","%"]
