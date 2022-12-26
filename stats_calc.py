@@ -247,7 +247,10 @@ class main_gui(App):
     def build(self):
         Window.maximize()
         return kv
-    
+#CLASSE UTILIZADA PARA FILTRAR OS DADOS INICIAIS
+# JA FOI REALIZADA A LIMPEZA E CRIADO O ARQUIVO
+# 'new_chars.json'. ASSIM ESTA CLASSE NÃO É MAIS
+# ÚTIL PARA O FUNCIONAMENTO DO SISTEMA.    
 class limpa_csv():
     
     def __init__(self):
@@ -286,6 +289,26 @@ class limpa_csv():
 
         with open(new_file, 'w') as new_json_chars:
             json.dump(all_chars_dict,new_json_chars)
+
+class account_json():
+    def __init__(self):
+        pass
+
+    def verify_account(self):
+        #Open system file;
+            #if file found;
+                #Open account screen
+            #else
+                #call create_account
+        pass
+    
+    def create_account(self):
+        #Create json account
+        #with open("account_file.json", 'w') as new_account_file:
+            #dict={}
+            #json.dump(dict,new_account_file)
+        pass
+
 
 if __name__ == '__main__':
     main_gui().run()

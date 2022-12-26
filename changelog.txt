@@ -1,0 +1,25 @@
+----------------------------------------26/12/12--------------------------------------
+    # Created git repositorie;
+    # Created changelog file;
+    # Added commentaries about some classes;
+
+    **************************TO BE ADDED IN NEXT UPDATE**************************
+        # Account file creation;
+        # Account file modification;
+        # Add characters to account file;
+        # Add equipments to account file;
+        # Screen for equipment creation;
+        # Consideration of equiments types;
+    ******************************************************************************
+
+--------------------------------------------------------------------------------------
+######################################################################################
+######################################################################################
+----------------------------------------25/12/12--------------------------------------
+    **************************MODIFIED*************************************
+        # Create the files;
+        # Adjusted multiple screens;
+        # Adjusted images in grid formation;
+        # Create grid layout for chars informations and calculations;
+    ***********************************************************************
+--------------------------------------------------------------------------------------
